@@ -1,49 +1,69 @@
-call plug#begin()
-    Plug 'preservim/nerdtree'
-call plug#end()
-
-set history=500
-
-filetype plugin on
-filetype indent on
-
-set autoread
-
+" Установка номеров строк
 set number
-set ruler
-set cmdheight=1
+set relativenumber
 
+" Удобный поиск
 set ignorecase
 set smartcase
+set incsearch
 set hlsearch
-set lazyredraw
 
-set magic
-set showmatch
-set mat=2
-
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-syntax enable
-
-set nobackup
-set nowb
-set noswapfile
-
-set expandtab
-set smarttab
+" Настройка табуляции
 set tabstop=4
 set shiftwidth=4
+set expandtab
 
-set lbr
-set tw=500
+" Автодополнение
+set wildmenu
+set wildmode=list:longest
 
-set ai
-set si
+" Цветовая схема
+syntax on
+set background=dark
+colorscheme desert
+
+" Поддержка мыши
+set mouse=a
+
+" Автосохранение настроек буфера
+set autoread
+
+" Поддержка буферов
+set hidden
+
+" Улучшение UX
+set scrolloff=3
 set wrap
+set linebreak
+set clipboard=unnamedplus
 
-" vim plugins settings
-nnoremap <C-n> :NERDTreeToggle<CR>
+" Настройка отображения
+set cursorline
+set showcmd
+set showmode
+set ruler
+
+" Подсветка совпадений при поиске
+set incsearch
+set hlsearch
+
+" Ускорение работы
+set ttimeoutlen=50
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'preservim/nerdtree' " File manager
+Plug 'vim-airline/vim-airline' " Status bar
+Plug 'scrooloose/syntastic' " Syntax analyzer
+call plug#end()
+
+" Плагины (NERDTree, например)
+map <C-n> :NERDTreeToggle<CR>
+
+" Makefile config
+autocmd FileType make setlocal noexpandtab softtabstop=0
+
+" filetype plugin indent on
+syntax on
+
+
